@@ -14,9 +14,12 @@ namespace DeckBuilder.Decks.ViewModels
     {
         public ObservableCollection<Deck> Decks { get; set; }
 
+        public ObservableCollection<Game> Games { get; set; }
+
         public CreateDeckViewModel()
         {
             Decks = SampleDecks();
+            Games = SampleGames();
         }
 
         private ObservableCollection<Deck> SampleDecks()
@@ -28,6 +31,17 @@ namespace DeckBuilder.Decks.ViewModels
             };
 
             return decks;
+        }
+
+        private ObservableCollection<Game> SampleGames()
+        {
+            ObservableCollection<Game> games = new ObservableCollection<Game>()
+            {
+                new Game() {Id = 1, Name = "A Game of Thrones LCG"},
+                new Game() {Id = 1, Name = "Android : Netrunner LCG"}
+            };
+
+            return games;
         }
     }
 }

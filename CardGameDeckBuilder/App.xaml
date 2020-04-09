@@ -1,0 +1,10 @@
+﻿<prism:PrismApplication x:Class="CardGameDeckBuilder.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:local="clr-namespace:CardGameDeckBuilder">
+    <Application.Resources>
+         
+    </Application.Resources>
+</prism:PrismApplication>

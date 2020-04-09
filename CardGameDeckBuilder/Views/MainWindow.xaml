@@ -1,0 +1,67 @@
+﻿<telerik:RadRibbonWindow x:Class="CardGameDeckBuilder.Core.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:vm="clr-namespace:CardGameDeckBuilder.Core.ViewModels"
+        xmlns:v="clr-namespace:CardGameDeckBuilder.Core.Views"
+        xmlns:deckViewmodels="clr-namespace:DeckBuilder.Decks.Views;assembly=DeckBuilder.Decks"
+        xmlns:resources="clr-namespace:CardGameDeckBuilder.Resources"
+        xmlns:local="clr-namespace:CardGameDeckBuilder"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        prism:ViewModelLocator.AutoWireViewModel="True">
+    
+    <telerik:RadRibbonWindow.Resources>
+        <vm:MainWindowViewModel x:Key="MainWindowVM"/>
+    </telerik:RadRibbonWindow.Resources>
+
+    <telerik:RadDockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <telerik:RadRibbonView Title="Placeholder" ApplicationName="{Binding Title}" Height="Auto"
+                               telerik:RadDockPanel.Dock="Top">
+            <telerik:RadRibbonView.Items>
+                <telerik:RadRibbonTab Header="Deck">
+                    <telerik:RadRibbonGroup Header="Edit Decks">
+                        <telerik:RadRibbonButton Text="Create" LargeImage="../Images/large/create_large.png"
+                                                 SmallImage="../Images/small/create_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                        <telerik:RadRibbonButton Text="Edit" LargeImage="../Images/large/edit_large.png"
+                                                 SmallImage="../Images/small/edit_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                        <telerik:RadRibbonButton Text="Delete" LargeImage="../Images/large/delete_large.png"
+                                                 SmallImage="../Images/small/delete_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="View Decks">
+                        <telerik:RadRibbonButton Text="Load" LargeImage="../Images/large/load_large.png"
+                                                 SmallImage="../Images/small/load_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+                <telerik:RadRibbonTab Header="Collection">
+                    <telerik:RadRibbonGroup Header="Games">
+                        <telerik:RadRibbonButton Text="Add" LargeImage="../Images/large/load_large.png"
+                                                 SmallImage="../Images/small/load_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                        <telerik:RadRibbonButton Text="Remove" LargeImage="../Images/large/load_large.png"
+                                                 SmallImage="../Images/small/load_small.png" CollapseToMedium="Never" CollapseToSmall="WhenGroupIsMedium"
+                                                 IsAutoSize="True" Size="Large"/>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+            </telerik:RadRibbonView.Items>
+        </telerik:RadRibbonView>
+
+        <Grid ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel prism:RegionManager.RegionName="{x:Static resources:RegionNames.MainViewRegion}" Grid.Column="0"/>
+            <!--<StackPanel Orientation="Vertical" Margin="5" Grid.Column="1"/>-->
+            <deckViewmodels:CreateDeckView Grid.Column="1"/>
+        </Grid>
+    </telerik:RadDockPanel>
+</telerik:RadRibbonWindow>
